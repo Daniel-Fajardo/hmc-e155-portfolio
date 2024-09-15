@@ -13,6 +13,8 @@ website:
         menu:
           - text: "Lab1: FPGA and MCU Setup and Testing"
             href: labs/lab1/lab1.qmd
+          - text: "Lab2: Multiplexed 7-Segment Display"
+            href: labs/lab2/lab2.qmd
       - href: resources.qmd
         text: Resources
             
