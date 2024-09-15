@@ -11,9 +11,9 @@ This lab went much smoother than the first lab, although not without its hiccups
 module in HDL and implementing it into the module that would oscillate between the two display anodes. This lab again used the on-board
 high-speed oscillator (HSOSC), which seemed to be working. However, designing the clock module took a lot of debugging, and the issue
 seemed to be in the reset switch. The input I used for the switch was active high, which means that it would be continuously resetting.
-This issue caused a lot of frustration.
+This issue caused a lot of frustration, but ultimately, I persevered
 
 One limitation I discovered on the protoboard was the lack of onboard switches. The previous lab used the four onboard switches, but this
 lab had to utilize standard I/O pins to access external switches. A similar problem was had with the onboard leds. The previous lab
-utilized three onboard leds but this lab requires five leds and so again the leds were accesses with standard I/O pins. These two 
+utilized three onboard leds but this lab requires five leds and so again the leds were accessed with standard I/O pins. These two 
 design pivots seemed simple, but they gave me a chance to better organize my breadboard circuitry. 
