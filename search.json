@@ -7,18 +7,18 @@
     "text": "E155 Course Website"
   },
   {
-    "objectID": "labs/lab1/lab1.html",
-    "href": "labs/lab1/lab1.html",
-    "title": "Lab1: FPGA and MCU Setup and Testing",
+    "objectID": "labs/lab2/lab2.html",
+    "href": "labs/lab2/lab2.html",
+    "title": "Lab2: Multiplexed 7-Segment Display",
     "section": "",
-    "text": "Lab Reflection:\nThis weeks lab was focused on setting up and testing the FPGA and MCU boards that will be used for the rest of the course. This lab involved soldering all the necessary components onto the e-155 protoboard, downloading the software interfaces: Lattice Radiant and SEGGER Embedded Studio, as well as the simulation software: ModelSim. Demo code was provided to verify that each software and hardware component was functioning correctly. Finally, the design part of the lab was to provide a 7 segment led digit display which corresponds to its binary input on the protoboard. This design was both simulated and verified with test vectors in ModelSim and was implemented with Lattice Radiant.\nThe most difficult part of this lab by far was debugging each software application so that it would correctly upload to the fpga and mcu. The challenges lied in assuring that I had the correct software installed with the correct licenses and the correct hardware drivers. On my personal device, I struggled to get Lattice Radiant to synthesize the FPGA and getting SEGGER to drive the MCU remains unresolved. Because of these struggles, I had to complete the lab using the computers in HMC’s digital lab.\nOnce the software and hardware appeared to be working enough to get started, I found the verilog module design to be fairly straight forward. Calculating the combinational logic for the 7-segment display was the most labor intensive part of the process for me and writing the HDL was quite simple. There was minimal debugging of the code, as the majority of the debugging came from understanding how Lattice Radiant works.\nThis lab also challenged my orginizational skills. This was the first project I have organized using github and learning the nuances took some time."
+    "text": "Lab Reflection: This lab expanded on the previous lab by adding a second 7-segment digit display to the FPGA design. Instead of adding FPGA I/O pins to the design, the two displays were accessed via a multiplexer which oscillated at a rate just fast enough to give the illusion of them both being on at the same time. This lab also implemented transistors to turn on/off each display.\nThis lab went much smoother than the first lab, although not without its hiccups. My largest struggle in this lab was designing the clock module in HDL and implementing it into the module that would oscillate between the two display anodes. This lab again used the on-board high-speed oscillator (HSOSC), which seemed to be working. However, designing the clock module took a lot of debugging, and the issue seemed to be in the reset switch. The input I used for the switch was active high, which means that it would be continuously resetting. This issue caused a lot of frustration, but ultimately, I persevered\nOne limitation I discovered on the protoboard was the lack of onboard switches. The previous lab used the four onboard switches, but this lab had to utilize standard I/O pins to access external switches. A similar problem was had with the onboard leds. The previous lab utilized three onboard leds but this lab requires five leds and so again the leds were accessed with standard I/O pins. These two design pivots seemed simple, but they gave me a chance to better organize my breadboard circuitry."
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "E155 Blog",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "E155 Portfolio",
     "section": "",
-    "text": "Hello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 30, 2024\n\n\nDaniel Fajardo\n\n\n\n\n\n\nNo matching items"
+    "text": "Daniel Fajardo is an engineering major at Harvey Mudd College.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "about.html",
@@ -28,10 +28,17 @@
     "text": "About this site"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "E155 Portfolio",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
     "section": "",
-    "text": "Daniel Fajardo is an engineering major at Harvey Mudd College.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Hello Quarto\n\n\n\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nAug 30, 2024\n\n\nDaniel Fajardo\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html",
+    "href": "labs/lab1/lab1.html",
+    "title": "Lab1: FPGA and MCU Setup and Testing",
+    "section": "",
+    "text": "Lab Reflection:\nThis weeks lab was focused on setting up and testing the FPGA and MCU boards that will be used for the rest of the course. This lab involved soldering all the necessary components onto the e-155 protoboard, downloading the software interfaces: Lattice Radiant and SEGGER Embedded Studio, as well as the simulation software: ModelSim. Demo code was provided to verify that each software and hardware component was functioning correctly. Finally, the design part of the lab was to provide a 7 segment led digit display which corresponds to its binary input on the protoboard. This design was both simulated and verified with test vectors in ModelSim and was implemented with Lattice Radiant.\nThe most difficult part of this lab by far was debugging each software application so that it would correctly upload to the fpga and mcu. The challenges lied in assuring that I had the correct software installed with the correct licenses and the correct hardware drivers. On my personal device, I struggled to get Lattice Radiant to synthesize the FPGA and getting SEGGER to drive the MCU remains unresolved. Because of these struggles, I had to complete the lab using the computers in HMC’s digital lab.\nOnce the software and hardware appeared to be working enough to get started, I found the verilog module design to be fairly straight forward. Calculating the combinational logic for the 7-segment display was the most labor intensive part of the process for me and writing the HDL was quite simple. There was minimal debugging of the code, as the majority of the debugging came from understanding how Lattice Radiant works.\nThis lab also challenged my orginizational skills. This was the first project I have organized using github and learning the nuances took some time."
   }
 ]
