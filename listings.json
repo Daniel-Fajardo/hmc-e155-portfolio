@@ -2,6 +2,8 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/lab2-reflection.html",
+      "/posts/lab1-reflection.html",
       "/posts/first-post.html"
     ]
   }
