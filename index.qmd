@@ -12,7 +12,10 @@ about:
           href: https://github.com/Daniel-Fajardo
 ---
 
-Daniel Fajardo is an engineering major at [Harvey Mudd College](https://hmc.edu).
+Daniel Fajardo is an engineering major at [Harvey Mudd College](https://hmc.edu). He is interested in pursuing a career in both
+electrical and mechanical engineering with a focus on areas that intersect both fields, such as mechatronics and systems engineering.
+His specific interests include embedded systems and microcontrollers, mechanical motion dynamics, and electrical design, which can be
+used to develop hardware and software solutions for automation and control systems. He also has a concentration in psychology and applies
+an interdisciplinary approach to solving engineering problems with environmental and human centered design considerations.
+He is also a member of the Claremont-Mudd-Scripps cross country team, receiving all-region awards and national all-academic honors.
 
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

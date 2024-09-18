@@ -1,7 +1,7 @@
 ---
 title: "Lab2: Multiplexed 7-Segment Display"
 author: "Daniel Fajardo"
-date: "9/10/24"
+date: "9/18/24"
 categories:
     - labreport
 ---
@@ -14,10 +14,53 @@ both being on at the same time. This lab also implemented transistors to turn on
 
 # Design and Testing Methodology
 
-The System Verilog in this lab was much more modular than in the previous lab.
+The System Verilog in this lab was much more modular than in the previous lab. This lab resused the clock divider and 7-segment logic 
+modules. This time the clock divider was adjusted to output clk at a frequency just above 90 Hz (this is the frequency at which humans
+are able to register) so that the two displays would appear on at the same time. At each positive edge of the clock, the chooseanode
+module would alternate which display would receive current to its anode. The current to each display was controlled via a transistor.
+The chooseanode module would also operate a mux (separate module) to select which of the two 4-bit inputs would be active and the
+chosen input would be sent to the 7-segment logic module, which would output the corresponding digit display. Finally, a module called
+leds would act as a full adder for the two inputs and would output the 5-bit sum on external leds.
 
 # Technical Documentation
 
-The source code for the project can be found in the associated [Github Repository]()
+The source code for the project can be found in the associated [Github Repository](https://github.com/Daniel-Fajardo/e155-lab2)
 
 # Block Diagram
+
+![Figure 1: Block diagram of verilog](images/Lab2 Block Diagram.jpg)
+
+The block diagram in Figure 1 demonstrates the overall architecture of the design. The clock divider module utilizes the on-board high
+speed oscillator (HSOSC) from the iCE40 library and outputs the clock to be used for the choose anode module. The other two submodules
+are the segment logic and the leds module.
+
+# Schematic
+
+![Figure 2: Schematic of physical circuit](images/Lab2 Schematic.jpg)
+
+![Figure 3: Pinout legend](images/Pinout legend.jpg)
+
+The schematic in Figure 2 shows the layout of the circuitry. The FPGA board is shown on the left with internal pull up resistors for the
+inputs and outputs. The inputs include the on-board 4-pin dip switch and an external 4-pin dip switch. The outputs include the leds,
+which are current limited by resistors, the segment display signals, which are connected in parallel, and finally the transistors, which
+have the 3.3V connected to the collector pins and a resistor connected to the base, while the emitter is hooked up to the display anodes.
+Figure 3 illustrates the corresponding I/O pins in the schematic and block diagram.
+
+# Results and Discussion
+
+The design was mostly successful. In simulation, the selected anode would correclty alternate on the rising edge of the clock and the
+led adder logic also produced the expected outputs. The 7-segment logic continued to work, as it did in the previous lab. With all this,
+the top level module worked successfully, outputting the correct 7-segment and led logic at an alternating times. Given more time, I
+would like to create a testbench to more properly demonstrate the operation of the design.
+
+In hardware, the design is fully successful only a fraction of the time. A large reason for this is poor solder joints which lead to
+incosistent pinouts. Another shortcoming is the current draw to some of the pins. This lab requires a large amount of current draw to
+handle all of its desired outputs. The 7-segment leds are not getting quite enough current and this is likely due to a large current pull
+elsewhere. I hope to adress each of these issues in the coming weeks, so that the design can perform more consistently, although when it
+does work it is reliably.
+
+# Conclusion
+
+The design semiconsistently displays two digits using a mux to alternate between the displays at a frequency higher than the human eye
+can perceive. The design operates successfully at the will of the solder joint connections and with inconsistent current draw to each
+led. This lab took me roughly 20 hours to complete.
