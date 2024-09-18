@@ -1,0 +1,23 @@
+---
+title: "Lab1 Reflection"
+description: "FPGA and MCU Setup and Testing"
+author: "Daniel Fajardo"
+date: "9/7/24"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+
+The most difficult part of this lab by far was debugging each software application so that it would correctly upload to the fpga and 
+mcu. The challenges lied in assuring that I had the correct software installed with the correct licenses and the correct hardware 
+drivers. On my personal device, I struggled to get Lattice Radiant to synthesize the FPGA and getting SEGGER to drive the MCU remains 
+unresolved. Because of these struggles, I had to complete the lab using the computers in HMC's digital lab.
+
+Once the software and hardware appeared to be working enough to get started, I found the verilog module design to be fairly straight 
+forward. Calculating the combinational logic for the 7-segment display was the most labor intensive part of the process for me and 
+writing the HDL was quite simple. There was minimal debugging of the code, as the majority of the debugging came from understanding how 
+Lattice Radiant works. 
+
+This lab also challenged my orginizational skills. This was the first project I have organized using github and learning the nuances 
+took some time. 

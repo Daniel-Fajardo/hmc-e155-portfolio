@@ -1,0 +1,29 @@
+---
+title: "Lab1 Reflection"
+description: "Multiplexed 7-Segment Display"
+author: "Daniel Fajardo"
+date: "9/15/24"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+
+This lab went much smoother than the first lab, although not without its hiccups. My largest struggle in this lab was debugging the
+hardware. For the longest time I was having trouble getting both displays to appear on at the same time. I had thouhgt that I simply had
+incorrect clock logic (which was partially true), but the main issue turned out to be poor connections in the solder joints. This led
+to inconsistent outputs on the breadboard and a debugging nightmare. After getting the 7-segment displays to finally work, the adder had
+two leds which did not work because of floating points in the pinouts.
+
+This lab again used the on-board high-speed oscillator (HSOSC), which seemed to be working. However, designing the clock module took a
+lot of debugging, and the issue turned out to be in the reset switch. The input I used for the switch was active high, which meant that
+it would be continuously resetting. This issue also caused some frustration.
+
+One limitation I discovered on the protoboard was the lack of onboard switches. The previous lab used the four onboard switches, but this
+lab had to utilize standard I/O pins to access external switches. A similar problem was had with the onboard leds. The previous lab
+utilized three onboard leds but this lab requires five leds and so again the leds were accessed with standard I/O pins. These two 
+design pivots seemed inconvenient, but they gave me a chance to better organize my breadboard circuitry. 
+
+Overall, this lab was incredibly frustrating. I felt like I immediately grasped the correct conceptual understanding of the lab, but the
+implementation took much longer than expected. Still, I think these frustrations will ultimately help me grow as an engineer and teach
+me lessons in patience and perseverance.

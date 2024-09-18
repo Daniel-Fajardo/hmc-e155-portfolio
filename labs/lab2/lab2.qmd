@@ -1,19 +1,23 @@
 ---
 title: "Lab2: Multiplexed 7-Segment Display"
+author: "Daniel Fajardo"
+date: "9/10/24"
+categories:
+    - labreport
 ---
 
-Lab Reflection:
+# Introduction
+
 This lab expanded on the previous lab by adding a second 7-segment digit display to the FPGA design. Instead of adding FPGA I/O pins to
 the design, the two displays were accessed via a multiplexer which oscillated at a rate just fast enough to give the illusion of them
 both being on at the same time. This lab also implemented transistors to turn on/off each display.
 
-This lab went much smoother than the first lab, although not without its hiccups. My largest struggle in this lab was designing the clock
-module in HDL and implementing it into the module that would oscillate between the two display anodes. This lab again used the on-board
-high-speed oscillator (HSOSC), which seemed to be working. However, designing the clock module took a lot of debugging, and the issue
-seemed to be in the reset switch. The input I used for the switch was active high, which means that it would be continuously resetting.
-This issue caused a lot of frustration, but ultimately, I persevered
+# Design and Testing Methodology
 
-One limitation I discovered on the protoboard was the lack of onboard switches. The previous lab used the four onboard switches, but this
-lab had to utilize standard I/O pins to access external switches. A similar problem was had with the onboard leds. The previous lab
-utilized three onboard leds but this lab requires five leds and so again the leds were accessed with standard I/O pins. These two 
-design pivots seemed simple, but they gave me a chance to better organize my breadboard circuitry. 
+The System Verilog in this lab was much more modular than in the previous lab.
+
+# Technical Documentation
+
+The source code for the project can be found in the associated [Github Repository]()
+
+# Block Diagram
