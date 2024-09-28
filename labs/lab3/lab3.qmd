@@ -1,0 +1,33 @@
+---
+title: "Lab3: Keypad Scanner"
+author: "Daniel Fajardo"
+date: "9/24/24"
+categories:
+    - labreport
+---
+
+# Introduction
+
+This lab again expanded upon the previous two labs by adding a keypad scanner to the existing multiplexed 7-segment display. The keypad
+contains each hexadecimal digit and upon button press, the 7-segment displays will record the most recent two inputs. The keypad will
+only record one button push at a time and will hold the value of the first button pressed if multiple are pressed simultaneously.
+
+# Design and Testing Methodology
+
+
+# Technical Documentation
+
+The source code for the project can be found in the associated [Github Repository](https://github.com/Daniel-Fajardo/e155-lab3)
+
+# Block Diagram
+
+
+# Schematic
+
+
+# Results and Discussion
+
+![Figure2: ModelSim testbench](images/tb.jpg)
+
+# Conclusion
+
