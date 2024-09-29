@@ -7,10 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Fajardo">
-<meta name="dcterms.date" content="2024-09-15">
-<meta name="description" content="Multiplexed 7-Segment Display">
+<meta name="dcterms.date" content="2024-09-24">
 
-<title>Lab1 Reflection – E155 Portfolio</title>
+<title>Lab3: Keypad Scanner – E155 Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">E155 Portfolio</span>
     </a>
   </div>
@@ -92,11 +91,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -105,21 +104,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
         <li>
-    <a class="dropdown-item" href="../labs/lab1/lab1.html">
+    <a class="dropdown-item" href="../../labs/lab1/lab1.html">
  <span class="dropdown-text">Lab1: FPGA and MCU Setup and Testing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../labs/lab2/lab2.html">
+    <a class="dropdown-item" href="../../labs/lab2/lab2.html">
  <span class="dropdown-text">Lab2: Multiplexed 7-Segment Display</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../labs/lab3/lab3.html">
+    <a class="dropdown-item" href="../../labs/lab3/lab3.html">
  <span class="dropdown-text">Lab3: Keypad Scanner</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../resources.html"> 
+    <a class="nav-link" href="../../resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -133,26 +132,32 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation</a></li>
+  <li><a href="#block-diagram" id="toc-block-diagram" class="nav-link" data-scroll-target="#block-diagram">Block Diagram</a></li>
+  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab1 Reflection</h1>
+<h1 class="title">Lab3: Keypad Scanner</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">reflection</div>
     <div class="quarto-category">labreport</div>
   </div>
   </div>
 
-<div>
-  <div class="description">
-    Multiplexed 7-Segment Display
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -167,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2024</p>
+      <p class="date">September 24, 2024</p>
     </div>
   </div>
   
@@ -179,12 +184,37 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This lab went much smoother than the first lab, although not without its hiccups. My largest struggle in this lab was debugging the hardware. For the longest time I was having trouble getting both displays to appear on at the same time. I had thouhgt that I simply had incorrect clock logic (which was partially true), but the main issue turned out to be poor connections in the solder joints. This led to inconsistent outputs on the breadboard and a debugging nightmare. After getting the 7-segment displays to finally work, the adder had two leds which did not work because of floating points in the pinouts.</p>
-<p>This lab again used the on-board high-speed oscillator (HSOSC), which seemed to be working. However, designing the clock module took a lot of debugging, and the issue turned out to be in the reset switch. The input I used for the switch was active high, which meant that it would be continuously resetting. This issue also caused some frustration.</p>
-<p>One limitation I discovered on the protoboard was the lack of onboard switches. The previous lab used the four onboard switches, but this lab had to utilize standard I/O pins to access external switches. A similar problem was had with the onboard leds. The previous lab utilized three onboard leds but this lab requires five leds and so again the leds were accessed with standard I/O pins. These two design pivots seemed inconvenient, but they gave me a chance to better organize my breadboard circuitry.</p>
-<p>Overall, this lab was incredibly frustrating. I felt like I immediately grasped the correct conceptual understanding of the lab, but the implementation took much longer than expected. Still, I think these frustrations will ultimately help me grow as an engineer and teach me lessons in patience and perseverance.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This lab again expanded upon the previous two labs by adding a keypad scanner to the existing multiplexed 7-segment display. The keypad contains each hexadecimal digit and upon button press, the 7-segment displays will record the most recent two inputs. The keypad will only record one button push at a time and will hold the value of the first button pressed if multiple are pressed simultaneously.</p>
+</section>
+<section id="design-and-testing-methodology" class="level1">
+<h1>Design and Testing Methodology</h1>
+</section>
+<section id="technical-documentation" class="level1">
+<h1>Technical Documentation</h1>
+<p>The source code for the project can be found in the associated <a href="https://github.com/Daniel-Fajardo/e155-lab3">Github Repository</a></p>
+</section>
+<section id="block-diagram" class="level1">
+<h1>Block Diagram</h1>
+</section>
+<section id="schematic" class="level1">
+<h1>Schematic</h1>
+</section>
+<section id="results-and-discussion" class="level1">
+<h1>Results and Discussion</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tb.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure2: ModelSim testbench</figcaption>
+</figure>
+</div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

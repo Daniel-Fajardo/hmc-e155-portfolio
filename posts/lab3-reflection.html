@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Fajardo">
-<meta name="dcterms.date" content="2024-09-15">
-<meta name="description" content="Multiplexed 7-Segment Display">
+<meta name="dcterms.date" content="2024-09-24">
+<meta name="description" content="Keypad Scanner">
 
-<title>Lab1 Reflection – E155 Portfolio</title>
+<title>Lab3 Reflection – E155 Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab1 Reflection</h1>
+<h1 class="title">Lab3 Reflection</h1>
   <div class="quarto-categories">
     <div class="quarto-category">reflection</div>
     <div class="quarto-category">labreport</div>
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Multiplexed 7-Segment Display
+    Keypad Scanner
   </div>
 </div>
 
@@ -167,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2024</p>
+      <p class="date">September 24, 2024</p>
     </div>
   </div>
   
@@ -179,10 +179,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This lab went much smoother than the first lab, although not without its hiccups. My largest struggle in this lab was debugging the hardware. For the longest time I was having trouble getting both displays to appear on at the same time. I had thouhgt that I simply had incorrect clock logic (which was partially true), but the main issue turned out to be poor connections in the solder joints. This led to inconsistent outputs on the breadboard and a debugging nightmare. After getting the 7-segment displays to finally work, the adder had two leds which did not work because of floating points in the pinouts.</p>
-<p>This lab again used the on-board high-speed oscillator (HSOSC), which seemed to be working. However, designing the clock module took a lot of debugging, and the issue turned out to be in the reset switch. The input I used for the switch was active high, which meant that it would be continuously resetting. This issue also caused some frustration.</p>
-<p>One limitation I discovered on the protoboard was the lack of onboard switches. The previous lab used the four onboard switches, but this lab had to utilize standard I/O pins to access external switches. A similar problem was had with the onboard leds. The previous lab utilized three onboard leds but this lab requires five leds and so again the leds were accessed with standard I/O pins. These two design pivots seemed inconvenient, but they gave me a chance to better organize my breadboard circuitry.</p>
-<p>Overall, this lab was incredibly frustrating. I felt like I immediately grasped the correct conceptual understanding of the lab, but the implementation took much longer than expected. Still, I think these frustrations will ultimately help me grow as an engineer and teach me lessons in patience and perseverance.</p>
+<p>This lab again expanded upon the previous two labs by adding a keypad scanner to the existing multiplexed 7-segment display. The keypad contains each hexadecimal digit and upon button press, the 7-segment displays will record the most recent two inputs. The keypad will only record one button push at a time and will hold the value of the first button pressed if multiple are pressed simultaneously.</p>
+<p>This lab was very intellectually challenging for me. The process of understanding how the fsm should function took some time and then figuring out how to approach it was more difficult. Once I had a solid grasp, I was able to get the design to work well in simulation in little time. The speed of development was thanks to implementing testbenches in QuestaSim for the first time in this class, which allowed for quick debugging.</p>
+<p>The frustrating part of this lab came in trying to transfer a design that was working perfectly in simulation into a design that works in hardware. My first issue came in synthesizing the design in Lattice Radiant. I had inferred a number of latches by not defining each output in each state in my fsm. By splitting my fsm into multiple fsms in the same module (one for state, nextstate, and others for outputs), I solved this issue. The next issue came from the button push not registering correctly. In simulation, a button input would hold the column high, but this was not happening in hardware. I am still working on resolving this issue.</p>
 
 
 
