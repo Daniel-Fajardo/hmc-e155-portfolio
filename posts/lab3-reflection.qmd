@@ -1,0 +1,25 @@
+---
+title: "Lab3 Reflection"
+description: "Keypad Scanner"
+author: "Daniel Fajardo"
+date: "9/24/24"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+
+This lab again expanded upon the previous two labs by adding a keypad scanner to the existing multiplexed 7-segment display. The keypad
+contains each hexadecimal digit and upon button press, the 7-segment displays will record the most recent two inputs. The keypad will
+only record one button push at a time and will hold the value of the first button pressed if multiple are pressed simultaneously.
+
+This lab was very intellectually challenging for me. The process of understanding how the fsm should function took some time and then 
+figuring out how to approach it was more difficult. Once I had a solid grasp, I was able to get the design to work well in simulation in
+little time. The speed of development was thanks to implementing testbenches in QuestaSim for the first time in this class, which
+allowed for quick debugging.
+
+The frustrating part of this lab came in trying to transfer a design that was working perfectly in simulation into a design that works
+in hardware. My first issue came in synthesizing the design in Lattice Radiant. I had inferred a number of latches by not defining each
+output in each state in my fsm. By splitting my fsm into multiple fsms in the same module (one for state, nextstate, and others for
+outputs), I solved this issue. The next issue came from the button push not registering correctly. In simulation, a button input would
+hold the column high, but this was not happening in hardware. I am still working on resolving this issue.
