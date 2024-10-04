@@ -1,0 +1,12 @@
+---
+title: "Lab4 Reflection"
+description: "Digital Audio"
+author: "Daniel Fajardo"
+date: "10/4/24"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+
+I have not yet been able to spend much time on this lab. This is a placeholder.
