@@ -2,7 +2,7 @@
 title: "Lab4 Reflection"
 description: "Digital Audio"
 author: "Daniel Fajardo"
-date: "10/4/24"
+date: "10/21/24"
 categories:
   - reflection
   - labreport
