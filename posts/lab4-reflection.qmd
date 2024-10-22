@@ -9,4 +9,17 @@ categories:
 draft: false
 ---
 
-I have not yet been able to spend much time on this lab. This is a placeholder.
+This lab had a steep learning curve, similar to the first lab, with the majority of the time spent trying to understand the nuances of
+working with the STM32 MCU and reading its reference manual. I also found that this lab required the most guidance compared to the
+earlier labs. I found that, when I got stuck, the internet was not very helpful, and I often could not become unstuck until I talked it
+out with another person who had more knowledge than I did. This became frustrating, over fall break, when I did not have access to these
+resources. However, with this guidance, I feel like my understanding of the relevant concepts rapidly improved. Because of these road
+blocks, this lab took the most number of days to complete, but slightly less time than the average lab.
+
+This lab is notorious for its susceptibility to typos and misinputs and I fell victim to it. The amount of times I would be missing just
+one line or even one bit caused so much headache. I spent so much time debugging the system, not understanding why it wasn't working,
+only to realize that I had commented out the line that enables the main output.
+
+With the completion of this lab, I feel like I have a significantly better understanding of the operations of a microcontroller at a low
+level and future projects feel much less intimidating. I am excited again to learn more after feeling demoralized and defeated because
+this lab was not working. This class has once again given me a chance to develop my perseverance.

@@ -40,18 +40,17 @@ which contains combinational logic for the on board LEDs.
 # Schematic
 
 ![Figure 3: Schematic of the physical circuit](images/Lab1 Schematic.jpg)
-![Figure 4: Pinout legend](images/Pinout legend.jpg)
 
 The schematic, as illustrated by Figure 3, shows the circuit layout for both the internal FPGA operations and the external 7-segment
 display. The schematic shows the internal pullup resistors (100 kOhms each) and digital switches which drive the output pins to 0 or
-3.3V, and the on-board switches for the input pins. The legend for all the pinouts is listed in Figure 4. The schematic also shows the
-390 Ohm resistors connected to the 7-segment pins to avoid metastability.
+3.3V, and the on-board switches for the input pins. The schematic also shows the 390 Ohm resistors connected to the 7-segment pins to
+avoid metastability.
 
 # Results and Discussion
 
-![Figure 5: Digit 0 being illuminated](images\digit images\PXL_20240906_181113869.jpg)
+![Figure 4: Digit 0 being illuminated](images\digit images\PXL_20240906_181113869.jpg)
 
-Overall, the lab was successful. The 7-segment display properly illuminated each of the 16 hexidecimal bits (Figure 5 illustrates the
+Overall, the lab was successful. The 7-segment display properly illuminated each of the 16 hexidecimal bits (Figure 4 illustrates the
 digit 0 being illuminated) and the on board leds followed the correct combinational logic and blinking frequency. The design was
 simulated in QuestaSim manually with various input bits and each time output the correct segment bits. One shortcoming of the lab was
 the lack of a testbench for QuestaSim, however with more time this would have been done. Additionally, the on-board led blinking

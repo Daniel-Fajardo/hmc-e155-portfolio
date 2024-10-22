@@ -59,25 +59,23 @@ to the same chooseanode and segmentlogic modules from the previous labs.
 
 ![Figure 4: Schematic of keypad](images/Lab3 Keypad Schematic.jpg)
 
-![Figure 5: Pinout legend](images/Lab3 Pinout.jpg)
-
 The circuit schematic can be seen in Figure 3. The right side of the schematic is identical to the multiplexed 7-segment display design
 from the previous lab. The left side of the schematic shows both the column outputs and the row inputs (which have pulldown resistors
 rather than the onboard pullup resistors) to the keypad. The diagram of the schematic also shows which rows and columns are connected to
 each pin. Figure 4 shows the internal schematic of the keypad, which is composed of a 4x4 matrix of buttons. For this reason, the
-columns are cyclicly driven and the rows are scanned. The pinouts for the FPGA are also illustrated in Figure 5.
+columns are cyclicly driven and the rows are scanned.
 
 # Results and Discussion
 
-![Figure 6: Keypadinput ModelSim testbench](images/keypadinput_tb sim.png)
+![Figure 5: Keypadinput ModelSim testbench](images/keypadinput_tb sim.png)
 
-This lab was successful in meeting all the lab requirements. Figure 6 shows a QuestaSim testbench simulation of the fsm logic module. As
+This lab was successful in meeting all the lab requirements. Figure 5 shows a QuestaSim testbench simulation of the fsm logic module. As
 pictured, when a row input is detected, the column is held and the hex is recorded. It then stays in the hold state (note that column
 should be 1111 in the hold state) until the row input is no longer detected. Multiple row inputs has no effect on the state.
 
-![Figure 7: Top Level ModelSim testbench](images/tb.jpg)
+![Figure 6: Top Level ModelSim testbench](images/tb.jpg)
 
-Figure 7 shows the top level QuestSim testbench simulation. This testbench provides less detail, but demonstrates the design functioning
+Figure 6 shows the top level QuestSim testbench simulation. This testbench provides less detail, but demonstrates the design functioning
 as would be seen in hardware.
 
 The design was also successful in hardware, with the circuit correctly detecting inputs and displaying the last two on the 7-segment

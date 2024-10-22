@@ -6,3 +6,28 @@ categories:
     - labreport
 ---
 
+# Introduction
+
+This was the first lab built entirely on the STM32 microcontroller. The system is capable of playing music on an 8-ohm speaker after
+amplification by an LM386 audio amplifier. The design contains a library written from scratch that configures the clock for PWM output.
+The MCU then reads a list of notes specifying the pitch (in Hz) and durations in (ms) for each note and plays each note for the its
+tupled duration.
+
+# Design and Testing Methodology
+
+This lab included writing a header file from scratch to configure timers 15 and 16 from the STM32L432KC reference manual. Before this
+can be done the clock needs to be configured.
+
+# Technical Documentation
+
+
+# Block Diagram
+
+
+# Schematic
+
+
+# Results and Discussion
+
+
+# Conclusion
