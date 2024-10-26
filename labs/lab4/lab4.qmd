@@ -1,7 +1,7 @@
 ---
 title: "Lab4: Digital Audio"
 author: "Daniel Fajardo"
-date: "9/24/24"
+date: "10/21/24"
 categories:
     - labreport
 ---
@@ -10,24 +10,54 @@ categories:
 
 This was the first lab built entirely on the STM32 microcontroller. The system is capable of playing music on an 8-ohm speaker after
 amplification by an LM386 audio amplifier. The design contains a library written from scratch that configures the clock for PWM output.
-The MCU then reads a list of notes specifying the pitch (in Hz) and durations in (ms) for each note and plays each note for the its
-tupled duration.
+The MCU then reads a list of notes specifying the pitch (in Hz) and durations in (ms) for each note and plays each note for its tupled
+pitch and duration.
 
 # Design and Testing Methodology
 
-This lab included writing a header file from scratch to configure timers 15 and 16 from the STM32L432KC reference manual. Before this
-can be done the clock needs to be configured.
+This lab included four files for configuring peripherals. The first being FLASH to prefetch the MCU RAM so that the following registers
+can be updated. The second peripheral is RCC, which is used for configuring the clock as phase locked loop (PLL) with the source clock
+being MSI at 4 MHz and the output frequency being 80 MHz. The next peripheral is TIM to configure the timers used in the system. This
+peripheral gets called twice to output a given frequency for the note and a given duration of that note. The final peripheral is GPIO,
+which is used to produce a PWM output to a pin in order to drive the speaker. The FLASH and GPIO header and configuration files were
+given to me, the RCC header file was given but the configuration file was written with a tutorial, and the TIM header and configuration
+files were written from scratch. Peripheral structs and registers were all configured with reference to the STM32L432KC reference manual.
+
+The design starts by configuring flash then configuring the clock in RCC. Next the clock gets turned on to GPIOA with alternate function
+14, allowing for pwm. Then timers 15 and 16 are enabled in RCC and configured in TIM. After this initialization, the design steps into a
+while (1) loop that cycles through each note in the tupled list of pitch and duration. Inside this loop, the frequency is set on timer
+16 and duration is set on timer 15.
+
+The setfreq function first checks if desired frequency is zero or not. If it is, that denotes a pause and no pwm is output (counter is
+disabled). If it is not, the auto-reload register (ARR) register is set to produce the period length in bits (which are updated at the
+frequency of 80MHz/prescalar). Next the duty cycle is set to 50% by having the capture/compare register (CCR1) be set to half of ARR. An
+update event is called in event generation register (EGR) and the counter is enabled again. Now the GPIO will output a square wave with
+a period determined by the length of ARR.
+
+The setdur function is more simple. ARR is set by defining the total length of the desired duration with (80MHz/prescalar)*duration/1000.
+EGR is called and then the status register (SR) is reset to wait for overflow in the counter and counter are reset to zero. Finally, a 
+while loop waits until SR detects overflow, which should take the desired duration to occur.
 
 # Technical Documentation
 
+The source code for the project can be found in the associated [Github Repository](https://github.com/Daniel-Fajardo/e155-lab4)
 
 # Block Diagram
 
 
 # Schematic
 
+![Figure 3: Schematic of physical circuit](images/Lab4 Schematic.jpg)
+
+The circuit for this lab is very simple. Figure 3
 
 # Results and Discussion
 
+{{< video https://youtu.be/96BAVuoL1Xo>}}
+
+As heard (quietly) in the video, the speaker can play Fur Elise at the correct pitch and tempo. 
 
 # Conclusion
+
+The solution successfully configures two TIM peripherals for pwm output on GPIO pins so that the system can play a given list of music
+notes (Fur Elise) at the correct tempo and pitch. I spent a total of 15 hours working on this lab.

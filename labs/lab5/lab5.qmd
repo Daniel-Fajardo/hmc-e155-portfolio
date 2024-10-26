@@ -1,0 +1,28 @@
+---
+title: "Lab5: Interrupts"
+author: "Daniel Fajardo"
+date: "10/23/24"
+categories:
+    - labreport
+---
+
+# Introduction
+
+
+# Design and Testing Methodology
+
+
+# Technical Documentation
+
+The source code for the project can be found in the associated [Github Repository](https://github.com/Daniel-Fajardo/e155-lab5)
+
+# Block Diagram
+
+
+# Schematic
+
+
+# Results and Discussion
+
+
+# Conclusion

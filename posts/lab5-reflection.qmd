@@ -1,0 +1,16 @@
+---
+title: "Lab5 Reflection"
+description: "Interrupts"
+author: "Daniel Fajardo"
+date: "10/25/24"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+
+This lab was a fun one. Having access to SEGGER's CMSIS files made referencing the datasheet so much easier. The ability to trust that
+the register addresses were correct without constantly checking the reference manual allowed for much quicker debugging. I also found
+that I was able to grasp the concept of interrupts fairly quickly. I also found that after struggling through lab 4, my process for
+debugging greatly improved. Overall this lab gave me the needed confidence boost and inspiration to continue working on the final two
+labs.

@@ -19,6 +19,8 @@ website:
             href: labs/lab3/lab3.qmd
           - text: "Lab4: Digital Audio"
             href: labs/lab4/lab4.qmd
+          - text: "Lab5: Interrupts"
+            href: labs/lab5/lab5.qmd
       - href: resources.qmd
         text: Resources
             
