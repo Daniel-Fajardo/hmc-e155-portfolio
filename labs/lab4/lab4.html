@@ -200,8 +200,20 @@ ul.task-list li input[type="checkbox"] {
 <h1>Design and Testing Methodology</h1>
 <p>This lab included four files for configuring peripherals. The first being FLASH to prefetch the MCU RAM so that the following registers can be updated. The second peripheral is RCC, which is used for configuring the clock as phase locked loop (PLL) with the source clock being MSI at 4 MHz and the output frequency being 80 MHz. The next peripheral is TIM to configure the timers used in the system. This peripheral gets called twice to output a given frequency for the note and a given duration of that note. The final peripheral is GPIO, which is used to produce a PWM output to a pin in order to drive the speaker. The FLASH and GPIO header and configuration files were given to me, the RCC header file was given but the configuration file was written with a tutorial, and the TIM header and configuration files were written from scratch. Peripheral structs and registers were all configured with reference to the STM32L432KC reference manual.</p>
 <p>The design starts by configuring flash then configuring the clock in RCC. Next the clock gets turned on to GPIOA with alternate function 14, allowing for pwm. Then timers 15 and 16 are enabled in RCC and configured in TIM. After this initialization, the design steps into a while (1) loop that cycles through each note in the tupled list of pitch and duration. Inside this loop, the frequency is set on timer 16 and duration is set on timer 15.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lab4 Frequency Calculations.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: Frequency Calculations</figcaption>
+</figure>
+</div>
 <p>The setfreq function first checks if desired frequency is zero or not. If it is, that denotes a pause and no pwm is output (counter is disabled). If it is not, the auto-reload register (ARR) register is set to produce the period length in bits (which are updated at the frequency of 80MHz/prescalar). Next the duty cycle is set to 50% by having the capture/compare register (CCR1) be set to half of ARR. An update event is called in event generation register (EGR) and the counter is enabled again. Now the GPIO will output a square wave with a period determined by the length of ARR.</p>
-<p>The setdur function is more simple. ARR is set by defining the total length of the desired duration with (80MHz/prescalar)*duration/1000. EGR is called and then the status register (SR) is reset to wait for overflow in the counter and counter are reset to zero. Finally, a while loop waits until SR detects overflow, which should take the desired duration to occur.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lab4 Duration Calculation.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Duration Calculation</figcaption>
+</figure>
+</div>
+<p>The setdur function is more simple (Figure 2). ARR is set by defining the total length of the desired duration with the above calculation, EGR is called and then the status register (SR) is reset to wait for overflow in the counter and counter are reset to zero. Finally, a while loop waits until SR detects overflow, which should take the desired duration to occur.</p>
 </section>
 <section id="technical-documentation" class="level1">
 <h1>Technical Documentation</h1>
@@ -218,12 +230,12 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Figure 3: Schematic of physical circuit</figcaption>
 </figure>
 </div>
-<p>The circuit for this lab is very simple. Figure 3</p>
+<p>The circuit for this lab is very simple. Figure 3 illustrates the amplification of the output pin via the LM386 audio amplifier.</p>
 </section>
 <section id="results-and-discussion" class="level1">
 <h1>Results and Discussion</h1>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/96BAVuoL1Xo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>As heard (quietly) in the video, the speaker can play Fur Elise at the correct pitch and tempo.</p>
+<p>As heard (quietly) in the video, the speaker can play Fur Elise at the correct pitch and tempo. The low volume output is a result of the chosen resistor of 15kOhms. With more time, I would experiment with lower resistor values to increase the voltage to the speaker so that the output is louder.</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
