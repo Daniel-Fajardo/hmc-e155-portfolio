@@ -1,28 +1,62 @@
 ---
 title: "Lab5: Interrupts"
 author: "Daniel Fajardo"
-date: "10/23/24"
+date: "10/25/24"
 categories:
     - labreport
 ---
 
 # Introduction
 
+This lab focused on using interrupts to measure the speed of a motor by measuring from a quadrature encoder. The MCU is able to calculate
+the speed and direction of the motor and prints to the output window in SEGGER at a rate of 1 Hz. The speed is determined by the number
+of interrupts during the sampling period and the direction is determined by the relative time between the pulses of the two sensors in
+the quadrature sensor.
 
 # Design and Testing Methodology
 
+The External Interrupt/Event (EXTI) peripheral was configured by the MCU to detect pulses triggered from the two signals in the
+quadrature encoder. The pulses were configured for pins PA5 and PA10. These pins were chosen because interrupts triggered on these pins
+are handled by different interrupt request (irq) handlers, EXTI9_5_IRQn and EXTI15_10_IRQn respectively. To calculate velocity, each
+interrupt handler contains a counter for every time it is triggered. As the motor spins, each signal pulses 120 times per revolution,
+and the velocity is calculated by dividing this counter by a sample period. The two sensors are offset by a phase of 90 degrees, so the
+direction can be determined by the time between their interrupt trigger. The 12 V motor is capable of spinning up to 10 revolutions per
+second and with 120 pulses per revolution, the encoder needs to be able to register time at a frequency high enough to account for each
+pulse. For this reason, TIM6 was configured with a frequency of 10 MHz. This timer needed to be separate from the timer used in the main
+loop, so TIM2 was configured. For convenience, this timer was set to the same frequency, and a delay_micros function was written to set
+a delay for a given number of microseconds.
 
 # Technical Documentation
 
 The source code for the project can be found in the associated [Github Repository](https://github.com/Daniel-Fajardo/e155-lab5)
 
-# Block Diagram
+# Flow Chart
 
+![Figure 1: Flow Chart](images/Lab5 Flow Chart.jpg)
+
+Figure 1 shows the flow chart of the solution. After initializing the GPIO pins, timers, interrupts, and global variables, the main
+function enters a permanent while loop, which first calculates the velocity and direction, then prints each in the output window in
+SEGGER. Then the loop is delayed by 1000000 microseconds (1 second) so that the calculations are updated at 1 Hz. The interrupts will be
+triggered at any point in the loop, but are illustrated where they are because the calculate functions are dependent on them.
 
 # Schematic
 
+![Figure 2: Schematic of physical circuit](images/Lab5 Schematic.jpg)
+
+The only analog interface is the motor and so the schematic is very straight forward, with the supply to the motor and the two sensors
+hooked up to the pins on the MCU.
 
 # Results and Discussion
 
+![Figure 3: Verification of results using a tachometer](images/Lab5 Tachometer.jpg)
+
+The solution was able to correctly read the speed and dircetion of the motor of a quadrature encoder. The accuracy of the design was
+verified by comparing to the measurement of a non-contact tachometer (Figure 3). At 12 V, the motor should be spinning at 10 rev/s
+(based on datasheet) and the solution measured 10.08 rev/s, while the tachometer measured ~10.3 rev/s. At lower voltages, the tachometer
+continued to measure slightly higher speeds, suggesting that the tachometer was calibrated differently, but that the design scales
+correctly. The direction was verified by observation.
 
 # Conclusion
+
+The design was able to measure the speed and direction of a motor and print the update this in the output window in SEGGER at a rate of
+1 Hz. Interrupts were correctly utilizes to do so. This lab took about 10 hours to complete.

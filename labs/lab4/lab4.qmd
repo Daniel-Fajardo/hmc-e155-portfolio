@@ -28,13 +28,17 @@ The design starts by configuring flash then configuring the clock in RCC. Next t
 while (1) loop that cycles through each note in the tupled list of pitch and duration. Inside this loop, the frequency is set on timer
 16 and duration is set on timer 15.
 
+![Figure 1: Frequency Calculations](images/Lab4 Frequency Calculations.jpg)
+
 The setfreq function first checks if desired frequency is zero or not. If it is, that denotes a pause and no pwm is output (counter is
 disabled). If it is not, the auto-reload register (ARR) register is set to produce the period length in bits (which are updated at the
 frequency of 80MHz/prescalar). Next the duty cycle is set to 50% by having the capture/compare register (CCR1) be set to half of ARR. An
 update event is called in event generation register (EGR) and the counter is enabled again. Now the GPIO will output a square wave with
 a period determined by the length of ARR.
 
-The setdur function is more simple. ARR is set by defining the total length of the desired duration with (80MHz/prescalar)*duration/1000.
+![Figure 2: Duration Calculation](images/Lab4 Duration Calculation.jpg)
+
+The setdur function is more simple (Figure 2). ARR is set by defining the total length of the desired duration with the above calculation,
 EGR is called and then the status register (SR) is reset to wait for overflow in the counter and counter are reset to zero. Finally, a 
 while loop waits until SR detects overflow, which should take the desired duration to occur.
 
@@ -49,13 +53,15 @@ The source code for the project can be found in the associated [Github Repositor
 
 ![Figure 3: Schematic of physical circuit](images/Lab4 Schematic.jpg)
 
-The circuit for this lab is very simple. Figure 3
+The circuit for this lab is very simple. Figure 3 illustrates the amplification of the output pin via the LM386 audio amplifier.
 
 # Results and Discussion
 
 {{< video https://youtu.be/96BAVuoL1Xo>}}
 
-As heard (quietly) in the video, the speaker can play Fur Elise at the correct pitch and tempo. 
+As heard (quietly) in the video, the speaker can play Fur Elise at the correct pitch and tempo. The low volume output is a result of the
+chosen resistor of 15kOhms. With more time, I would experiment with lower resistor values to increase the voltage to the speaker so that
+the output is louder.
 
 # Conclusion
 
