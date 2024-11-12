@@ -45,10 +45,12 @@ have the 3.3V connected to the collector pins and a resistor connected to the ba
 
 # Results and Discussion
 
-The design was mostly successful. In simulation, the selected anode would correclty alternate on the rising edge of the clock and the
-led adder logic also produced the expected outputs. The 7-segment logic continued to work, as it did in the previous lab. With all this,
-the top level module worked successfully, outputting the correct 7-segment and led logic at an alternating times. Given more time, I
-would like to create a testbench to more properly demonstrate the operation of the design.
+![Figure 3: Testbench simulation](images\Lab2 Testbench.jpg)
+
+The design was mostly successful. In simulation (Figure 3), the selected anode would correclty alternate on the rising edge of the clock,
+as would the output segment logic alternate between s1 and s2. The led adder logic also produced the expected outputs. The 7-segment
+logic continued to work, as it did in the previous lab. With all this, the top level module worked successfully, outputting the correct
+7-segment and led logic at an alternating times.
 
 In hardware, the design is fully successful only a fraction of the time. A large reason for this is poor solder joints which lead to
 incosistent pinouts. Another shortcoming is the current draw to some of the pins. This lab requires a large amount of current draw to

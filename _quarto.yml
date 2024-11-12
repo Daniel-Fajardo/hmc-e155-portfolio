@@ -21,6 +21,8 @@ website:
             href: labs/lab4/lab4.qmd
           - text: "Lab5: Interrupts"
             href: labs/lab5/lab5.qmd
+          - text: "Lab7: The Advanced Encryption Standard"
+            href: labs/lab7/lab7.qmd
       - href: resources.qmd
         text: Resources
             

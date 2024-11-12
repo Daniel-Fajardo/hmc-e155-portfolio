@@ -1,0 +1,22 @@
+---
+title: "Lab7 Reflection"
+description: "The Advanced Encryption Standard"
+author: "Daniel Fajardo"
+date: "11/11/24"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+
+This lab helped me develop efficient debugging techniques. This lab felt like a giant puzzle with many different pieces all needing to
+work to perform the overall function. Because of this, I needed to ensure that each piece was working how I expected it to, and to do
+this, I wrote testbenches for each submodule. This process was tedious but it helped reduce time spent debugging by giving more
+transparency to the text as it underwent encryption.
+
+The most difficult part of this lab was dealing with sequential functions which took multiple clock cycles to finish. The keyexpansion
+module gave me the biggest challenge, as it not only took two cycles to complete, but it also was required to be finished before the
+other modules could be executed. 
+
+This lab has helped me develop my patience, as I often found myself not making much progress while debugging. It also gave me more
+practice with persevering through struggle.
