@@ -123,6 +123,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../labs/lab5/lab5.html">
  <span class="dropdown-text">Lab5: Interrupts</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../labs/lab7/lab7.html">
+ <span class="dropdown-text">Lab7: The Advanced Encryption Standard</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -234,11 +238,18 @@ ul.task-list li input[type="checkbox"] {
 <h1>Results and Discussion</h1>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images\digit images\PXL_20240906_181113869.jpg" class="img-fluid figure-img"></p>
-<figcaption>Figure 4: Digit 0 being illuminated</figcaption>
+<p><img src="images\Lab1 Testbench.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: Testbench simulation</figcaption>
 </figure>
 </div>
-<p>Overall, the lab was successful. The 7-segment display properly illuminated each of the 16 hexidecimal bits (Figure 4 illustrates the digit 0 being illuminated) and the on board leds followed the correct combinational logic and blinking frequency. The design was simulated in QuestaSim manually with various input bits and each time output the correct segment bits. One shortcoming of the lab was the lack of a testbench for QuestaSim, however with more time this would have been done. Additionally, the on-board led blinking frequency was only roughly 2.4 Hz, but could be achieved with a counter with more efficiency than only powers of 2.</p>
+<p>Figure 4 shows a simulation of a couple binary inputs to the system. The seg row shows the led segments in the 7-segment display as well as the additional leds that will be lit for each input (note that seg is inverted when compared to the key in Figure 1, because the segments are active low).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\digit images\PXL_20240906_181113869.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: Digit 0 being illuminated</figcaption>
+</figure>
+</div>
+<p>Overall, the lab was successful. The 7-segment display properly illuminated each of the 16 hexidecimal bits (Figure 5 illustrates the digit 0 being illuminated) and the on board leds followed the correct combinational logic and blinking frequency. The design was simulated in QuestaSim manually with various input bits and each time output the correct segment bits. One shortcoming of the lab was the lack of a testbench for QuestaSim, however with more time this would have been done. Additionally, the on-board led blinking frequency was only roughly 2.4 Hz, but could be achieved with a counter with more efficiency than only powers of 2.</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
